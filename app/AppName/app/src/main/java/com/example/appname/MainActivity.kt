@@ -1,27 +1,32 @@
 package com.example.appname
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines withContext
 
-@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private val viewModel: MainViewModel by viewModels()
+    private lateinit var priceTextView: TextView
+    private lateinit var predictButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        viewModel.solanaPrice.observe(this) { price ->
-            findViewById<TextView>(R.id.priceTextView).text = "Solana Price: $$price"
-        }
+        priceTextView = findViewById(R.id.priceTextView)
+        predictButton = findViewById(R.id.predictButton)
 
-        findViewById<Button>(R.id.predictButton).setOnClickListener {
-            viewModel.fetchSolanaPrice()
+        // Fetch Solana data
+        val coinGeckoService = CoinGeckoClient.create()
+        CoroutineScope(Dispatchers.IO).launch {
+            val solanaData = coinGeckoService.getSolanaData()
+            val price = solanaData.market_data.current_price["usd"]
+            withContext(Dispatchers.Main) {
+                priceTextView.text = "Solana Price: $$price"
+            }
         }
     }
 }
