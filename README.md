@@ -10,6 +10,9 @@ All types of solana crypto tokens Analysis and prediction.
 Price prediction long term 
 Price prediction short term 
 Social media Analysis 
+- Possible Improvements
+Add a README.md file with detailed setup instructions.
+Automate the build process using Gradle tasks or CI/CD pipelines.
 
 Check OUTPUT.md for the complete unaltered output.
 
