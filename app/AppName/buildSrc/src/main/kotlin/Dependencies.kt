@@ -1,0 +1,31 @@
+object Versions {
+    const val kotlin = "1.8.0"
+    const val androidGradlePlugin = "7.4.2"
+    const val googleServices = "4.3.14"
+    const val coreKtx = "1.9.0"
+    const val appcompat = "1.6.1"
+    const val material = "1.8.0"
+    const val constraintlayout = "2.1.4"
+    const val retrofit = "2.9.0"
+    const val okhttp = "4.9.3"
+    const val tensorflowLite = "2.8.0"
+    const val firebaseDatabase = "20.2.1"
+    const val junit = "4.13.2"
+    const val junitAndroid = "1.1.5"
+    const val espresso = "3.5.1"
+}
+
+object Libraries {
+    const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
+    const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
+    const val material = "com.google.android.material:material:${Versions.material}"
+    const val constraintlayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintlayout}"
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val retrofitConverterGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
+    const val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttp}"
+    const val tensorflowLite = "org.tensorflow:tensorflow-lite:${Versions.tensorflowLite}"
+    const val firebaseDatabase = "com.google.firebase:firebase-database-ktx:${Versions.firebaseDatabase}"
+    const val junit = "junit:junit:${Versions.junit}"
+    const val junitAndroid = "androidx.test.ext:junit:${Versions.junitAndroid}"
+    const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
+}
