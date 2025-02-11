@@ -29,17 +29,25 @@ android {
 }
 
 dependencies {
-    // Dependency Management Block
-    implementation "androidx.core:core-ktx:$coreKtxVersion"
-    implementation "androidx.appcompat:appcompat:$appcompatVersion"
-    implementation "com.google.android.material:material:$materialVersion"
-    implementation "androidx.constraintlayout:constraintlayout:$constraintlayoutVersion"
-    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    implementation "org.tensorflow:tensorflow-lite:$tensorflowLiteVersion"
-    implementation "com.google.firebase:firebase-database-ktx:$firebaseDatabaseVersion"
-    implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
-    testImplementation "junit:junit:$junitVersion"
-    androidTestImplementation "androidx.test.ext:junit:$junitAndroidVersion"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    // Android Libraries
+    implementation Libraries.coreKtx
+    implementation Libraries.appcompat
+    implementation Libraries.material
+    implementation Libraries.constraintlayout
+
+    // Networking
+    implementation Libraries.retrofit
+    implementation Libraries.retrofitConverterGson
+    implementation Libraries.okhttp
+
+    // Machine Learning
+    implementation Libraries.tensorflowLite
+
+    // Firebase
+    implementation Libraries.firebaseDatabase
+
+    // Testing
+    testImplementation Libraries.junit
+    androidTestImplementation Libraries.junitAndroid
+    androidTestImplementation Libraries.espresso
 }
